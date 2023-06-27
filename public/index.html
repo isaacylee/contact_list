@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Manager</title>
+  <link rel="stylesheet" href="stylesheets/contacts.css">
+  <script src="javascripts/jquery.js"></script>
+  <script src="javascripts/handlebars.js"></script>
+
+  <script id="contacts" type="text/x-handlebars">
+    {{#each contacts}}
+      {{> contact}}
+    {{/each}}
+  </script>
+
+  <script id="contact" data-type="partial" type="text/x-handlebars">
+    <div data-id="{{id}}" class="contact">
+      <h3>{{full_name}}</h3>
+      <dl>
+        <dt>Phone Number:</dt>
+        <dd>{{phone_number}}</dd>
+        <dt>Email:</dt>
+        <dd>{{email}}</dd>
+        <dt>Tags:</dt>
+        <dd>
+          {{#each tags}}
+            {{> tag}}
+          {{/each}}
+        </dd>
+      </dl>
+      <button class="edit">Edit</button>
+      <button class="delete">Delete</button>
+    </div>
+  </script>
+
+  <script id="tag" data-type='partial' type="text/x-handlebars">
+    <a href="" class='tag'>{{this}}</a>
+  </script>
+
+  <script id="tags" type="text/x-handlebars">
+    {{#each tags}}
+      {{> add_tag}}
+    {{/each}}
+  </script>
+
+  <script id="add_tag" data-type='partial' type="text/x-handlebars">
+    <span class="tag">{{this}}</span><button class="delete-tag">X</button>
+  </script>
+
+  <script src="javascripts/app.js"></script>
+</head>
+<body>
+  <h1>Contact Manager</h1>
+
+  <div id="nav">
+    <button class="add">Add Contact</button>
+    <button class="show-all hide">Show All Contacts</button>
+    <input type="text" id="search-bar" placeholder="Search">
+  </div>
+
+  <form class="hide" id="contact-form">
+    <h2></h2>
+    <dl>
+      <dt>
+        <label for="full_name">Full name:</label>
+        <div class="error-msg hide">Please enter a name.</div>
+      </dt>
+      <dd>
+        <input type="text" id="full_name" name="full_name">
+      </dd>
+      <dt>
+        <label for="email">Email address:</label>
+        <div class="error-msg hide">Please enter a valid email address.</div>
+      </dt>
+      <dd>
+        <input type="email" id="email" name="email">
+      </dd>
+      <dt>
+        <label for="phone_number">Phone number:</label>
+        <div class="error-msg hide">Please enter a valid phone number.</div>
+      </dt>
+      <dd>
+        <input type="tel" id="phone_number" name="phone_number" placeholder="xxx-xxx-xxxx">
+      </dd>
+      <dt>
+        <label>Tags:</label>
+      </dt>
+      <dd>
+        <div id="tags-list" data-tags=""></div>
+        <label for="tag">Add tag:</label>
+        <input type="text" id="tag">
+        <button class="add-tag">Add</button>
+      </dd>
+    </dl>
+    <input type="submit" value="Submit">
+    <button class="cancel">Cancel</button>
+  </form>
+
+  <div id="list"></div>
+  <div id="empty-query-msg" class="hide">No name starting with <span id="query"></span></div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+body {
+  width: 600px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+form {
+  margin-top: 30px;
+}
+
+form dl {
+  width: 400px;
+  margin: 0 auto;
+}
+
+form input[type='submit'] {
+  margin: 5% 15px 0 38%;
+}
+
+dd input {
+  width: 300px;
+}
+
+button, input[type='submit'] {
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#search-bar {
+  float: right;
+}
+
+.hide{
+  display: none;
+}
+
+#list.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.contact dt {
+  font-weight: bold;
+}
+
+.contact dd {
+  margin: 10px 0;
+}
+
+div.error-msg {
+  color: red;
+  font-size: 13px;
+  margin-left: 40px;
+}
+
+input.error {
+  border: 1px solid red;
+}
+
+.contact {
+  padding: 15px;
+}
+
+button.delete-tag {
+  border: 1px solid gray;
+  color: gray;
+  padding: 3px 5px;
+}
+
+.tag {
+  color: gray;
+  text-decoration: none;
+  font-style: italic;
+  margin-right: 4px;
+}
+
+#empty-query-msg {
+  font-size: 28px;
+  margin: 50px 0;
+}
